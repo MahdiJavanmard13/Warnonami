@@ -171,8 +171,11 @@ public class CountrySelectionActivity extends Activity {
                 .setTitle("تأیید کشور")
                 .setMessage("کشور «" + countryName + "» برای دوره «" + selectedEra + "» انتخاب شود؟")
                 .setPositiveButton("تأیید", (dialog, which) -> {
-                    Toast.makeText(this, countryName + " انتخاب شد. مرحله بعد نقشه بازی است.",
-                            Toast.LENGTH_LONG).show();
+                    android.content.Intent intent = new android.content.Intent(
+                            this, GameDashboardActivity.class);
+                    intent.putExtra("selected_era", selectedEra);
+                    intent.putExtra("selected_country", countryName);
+                    startActivity(intent);
                 })
                 .setNegativeButton("بازگشت", null)
                 .show();
