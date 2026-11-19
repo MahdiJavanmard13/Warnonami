@@ -1,14 +1,13 @@
 package com.warnonami.game;
 
 import android.app.Activity;
-import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class EraSelectionActivity extends Activity {
 
@@ -47,8 +46,7 @@ public class EraSelectionActivity extends Activity {
         subtitle.setPadding(0, 0, 0, 30);
         root.addView(subtitle);
 
-        for (int i = 0; i < eras.length; i++) {
-            final String selectedEra = eras[i];
+        for (String selectedEra : eras) {
             Button eraButton = new Button(this);
             eraButton.setText(selectedEra);
             eraButton.setAllCaps(false);
@@ -60,7 +58,7 @@ public class EraSelectionActivity extends Activity {
             params.bottomMargin = 14;
             root.addView(eraButton, params);
 
-            eraButton.setOnClickListener(view -> confirmEraSelection(selectedEra));
+            eraButton.setOnClickListener(view -> openCountrySelection(selectedEra));
         }
 
         Button backButton = new Button(this);
@@ -72,17 +70,9 @@ public class EraSelectionActivity extends Activity {
         setContentView(root);
     }
 
-    private void confirmEraSelection(String era) {
-        new AlertDialog.Builder(this)
-                .setTitle("دوره انتخاب شد")
-                .setMessage("دوره «" + era + "» انتخاب شد. مرحله بعد، انتخاب کشور خواهد بود.")
-                .setPositiveButton("ادامه", (dialog, which) ->
-                        Toast.makeText(
-                                this,
-                                "انتخاب کشور در مرحله بعد اضافه می‌شود.",
-                                Toast.LENGTH_SHORT
-                        ).show())
-                .setNegativeButton("تغییر دوره", null)
-                .show();
+    private void openCountrySelection(String era) {
+        Intent intent = new Intent(this, CountrySelectionActivity.class);
+        intent.putExtra("selected_era", era);
+        startActivity(intent);
     }
 }
