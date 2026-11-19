@@ -2,6 +2,7 @@ package com.warnonami.game;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
@@ -27,11 +28,7 @@ public class MainActivity extends Activity {
                 .setTitle("نوع بازی را انتخاب کنید")
                 .setItems(modes, (dialog, which) -> {
                     if (which == 0) {
-                        Toast.makeText(
-                                this,
-                                "بخش انتخاب دوره تاریخی در مرحله بعد ساخته می‌شود.",
-                                Toast.LENGTH_LONG
-                        ).show();
+                        startActivity(new Intent(this, EraSelectionActivity.class));
                     } else {
                         Toast.makeText(
                                 this,
