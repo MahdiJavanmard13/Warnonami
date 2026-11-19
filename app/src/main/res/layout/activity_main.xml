@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WARNONAMI"
+        android:text="@string/game_title"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         android:textStyle="bold"
@@ -20,20 +20,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GLOBAL STRATEGY GAME"
+        android:text="@string/game_subtitle"
         android:textColor="#8FA9D6"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:layout_marginBottom="40dp"/>
 
     <Button
+        android:id="@+id/button_new_game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ساخت بازی جدید"/>
+        android:text="@string/new_game"/>
 
     <Button
+        android:id="@+id/button_my_games"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="بازی‌های من"
+        android:text="@string/my_games"
         android:layout_marginTop="12dp"/>
 
 </LinearLayout>
