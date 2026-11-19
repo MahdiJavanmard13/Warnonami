@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WARNONAMI</string>
+    <string name="game_title">WARNONAMI</string>
+    <string name="game_subtitle">بازی استراتژیک جهانی</string>
+    <string name="new_game">ساخت بازی جدید</string>
+    <string name="my_games">بازی‌های من</string>
+</resources>
